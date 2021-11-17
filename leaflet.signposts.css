@@ -1,0 +1,60 @@
+.signposts {
+    padding: 4px 6px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+	pointer-events: none;
+}
+
+.hideSignpost {
+display: none;
+}
+
+/* Styles the direction arrows */
+.signposts svg {
+color: #404040;
+max-width: 14px;
+max-height: 14px;
+vertical-align: top;
+position: relative;
+top: 1px;
+margin-right: 3px;
+width: 14px;
+}
+
+/* The CSS below determines the locations of the new placeholders for controls */
+/* Leaflet assigns classes to determine location eg. ".leaflet-bottom .leaflet-right" */
+/* The addControlPlaceholders function creates new locations, referred to by these new classes */
+
+.leaflet-y25, .leaflet-y75, .leaflet-x25, .leaflet-x75, .leaflet-bottomAdj {
+    position: absolute;
+	z-index: 400;
+    pointer-events: none;
+}
+
+.leaflet-y25 {
+	top: 25%;
+    transform: translateY(-50%);
+	}
+	
+.leaflet-y75 {
+	top: 75%;
+    transform: translateY(-50%);
+		}
+		
+.leaflet-x25 {
+	left: 25%;
+    transform: translateX(-50%);
+		}
+		
+.leaflet-x75 {
+	left: 75%;
+    transform: translateX(-50%);
+		}
+
+.leaflet-bottomAdj {
+	bottom: 10px; /* Used to prevent overlap with Leaflet attribution text */
+	transform: translateY(-50%);
+}

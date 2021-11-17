@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Signpost demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- Leaflet -->	
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+<!-- Turf --> 
+<script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
+
+<!-- Signposts css -->
+<link rel="stylesheet" href="leaflet.signposts.css" />
+
+<!-- Point data: geojson loaded as variable 'pointData' -->
+<script src="pointData.js" ></script>
+
+<style>
+#map {
+height: 550px;
+width: 550px;
+}
+</style>
+
+</head>
+<div id="map"></div>
+</body>
+
+<script>
+var map = L.map('map').setView([51.513, -0.12], 12);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 19
+}).addTo(map);
+
+var points = L.geoJSON(pointData).addTo(map);
+
+</script>
+
+<!-- Signposts js -->
+<script src="leaflet.signposts.js" ></script>
+
+</html>
+	
