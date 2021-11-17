@@ -3,15 +3,7 @@
  //         November 2021       //
 /////////////////////////////////
 
-// This plugin adds eight new L.control locations to the map window which display a directional marker and a count of how many points can be found outside the current map view in each given direction
-
-// This version places the new controls at secondary intercardinal directions (eg. NNE, ENE, ESE) rather than ordinal and cardinal directions (eg. N, NE, E). This is because corners of the leaflet window are frequently used for other controls, such as zoom.
-
-// The count is based on eight (invisible) turf polgyons applied area outside the current map view that extend just far enough to overlay all point coordinates
-
-// The new L.controls are updated as the map moves, and are hidden when the count is zero
-
-// The plugin looks for feature data in the variable 'points'. In the example (available on GitHub) this is read from a GeoJSON object as it's added to the map, eg. var points = L.geoJSON(pointData).addTo(map);
+// https://github.com/williamlow/Leaflet.Signposts for information and usage instructions
 
   //////////////////////////////////
  //       Adding signposts       //
