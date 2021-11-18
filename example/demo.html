@@ -25,10 +25,11 @@ width: 550px;
 </style>
 
 </head>
+	
 <div id="map"></div>
-</body>
 
 <script>
+	
 var map = L.map('map').setView([51.513, -0.12], 12);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -43,6 +44,7 @@ var points = L.geoJSON(pointData).addTo(map);
 
 <!-- Signposts js -->
 <script src="../src/leaflet.signposts.js" ></script>
-
+	
+</body>
 </html>
 	
