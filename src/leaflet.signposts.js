@@ -40,7 +40,7 @@ var signposts = ["NNE","ENE","ESE","SSE","SSW","WSW","WNW","NNW"];
 var signpostsLoc = ['topx75','y25right','y75right','bottomAdjx75','bottomAdjx25','y75left','y25left','topx25'];
 var signpostsRot = [22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5];
 
-for (i in signposts) {
+for (var i in signposts) {
 let name = signposts[i]+"control"; // eg. NNWcontrol
 window[name]  = L.control({position: signpostsLoc[i]}); // Creates an new L.control object and puts it in the position from the array
 
@@ -65,6 +65,7 @@ window[name].addTo(map);
 //////////////////////////////////
 
 // Declaring variables
+// Map view bounds
 var viewBounds;
 var bboxN;
 var bboxE;
@@ -78,6 +79,16 @@ var pointsN = points.getBounds().getNorth()+1;
 var pointsE = points.getBounds().getEast()+1;
 var pointsS = points.getBounds().getSouth()-1;
 var pointsW = points.getBounds().getWest()-1;
+// Polygons
+var NNE;
+var ENE;
+var ESE;
+var SSE;
+var SSW;
+var WSW;
+var WNW;
+var NNW;
+
 
 // A function to apply 8 polygons around the map area (see Github link for a visual explanation)
 function updatePolys (){
@@ -131,7 +142,7 @@ function pointsCheck() {
 	for (i in signposts) {
 		var ptsWithin = turf.pointsWithinPolygon(pointsFilter, window[signposts[i]]).features.length; // Use turf.js to count the points in a polygon. It returns a feature collection so we query the length. 
 
-		document.getElementById(signposts[i]).innerHTML = ptsWithin // Finds the span in the target signpost and updates the count. jQuery alternative $('#'+signposts[i]).text(ptsWithin);
+		document.getElementById(signposts[i]).innerHTML = ptsWithin; // Finds the span in the target signpost and updates the count. jQuery alternative $('#'+signposts[i]).text(ptsWithin);
 
 		let name = signposts[i]+"control"; // Builds the name of the L.control object eg. NNWcontrol
 		if (ptsWithin == 0) { // If the count is zero, we hide the signpost by adding a CSS class. If not, we remove the class.
